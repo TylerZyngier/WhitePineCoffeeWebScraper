@@ -3,9 +3,8 @@ import requests
 import sys
 import os
 
-from Profiles import SignatureBlend
-from Profiles import SingleOrigin
-
+from Coffee import SignatureBlend
+from Coffee import SingleOrigin
 
 def get_site_info(url):
     result = requests.get(url)
@@ -32,7 +31,7 @@ def get_single_origin_coffee():
 
     coffeeList = []
 
-    print("Single Origin Coffee:")
+    print("Single Origin Coffee", style='bold')
 
     for product in products:
         inStock = product.find(class_='sold-out') == None
@@ -83,7 +82,7 @@ def get_signature_blend_coffee():
 
     coffeeList = []
 
-    print("\nWPC Signature Blends:")
+    print("WPC Signature Blends:")
 
     for product in products:
         inStock = product.find(class_='sold-out') == None
@@ -106,20 +105,22 @@ def get_signature_blend_coffee():
         i += 1
 
 
+def clear_console():
+    os.system('cls')
+
+
 while(True):
     print("Enter 1 to view WPCs Signature Blends \
     \nEnter 2 to view Single Origin Coffee \
     \nEnter 3 to close program")
 
-    userInput = input("Input: ")
+    userInput = input("\nInput: ")
+
+    clear_console()
 
     if userInput == '1':
-        os.system('cls')
         get_signature_blend_coffee()
     elif userInput == '2':
-        os.system('cls')
         get_single_origin_coffee()
     elif userInput == '3':
-        os.system('cls')
         sys.exit()
-
