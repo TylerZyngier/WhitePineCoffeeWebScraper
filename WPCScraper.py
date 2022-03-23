@@ -54,8 +54,6 @@ def get_single_origin_coffee():
         coffeeList.append(SingleOrigin(
             origin, roast, processing, notes, inStock))
 
-    i = 0
-
     for coffee in coffeeList:
         print(f' Availability: {get_availability(coffee.inStock)} \
             \n {coffee.origin} \
@@ -63,8 +61,6 @@ def get_single_origin_coffee():
             \n {coffee.processing} \
             \n {coffee.origin} \
             \n {coffee.notes}\n')
-
-        i += 1
 
 
 def get_signature_blend_coffee():
@@ -94,14 +90,10 @@ def get_signature_blend_coffee():
 
         coffeeList.append(SignatureBlend(productName, roastProfile, inStock))
 
-    i = 0
-
     for coffee in coffeeList:
         print(f' Availability: {get_availability(coffee.inStock)} \
             \n Name: {coffee.name} \
             \n Roast:{coffee.roast}\n')
-
-        i += 1
 
 
 def clear_console():
