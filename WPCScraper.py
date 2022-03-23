@@ -6,16 +6,14 @@ import os
 from Coffee import SignatureBlend
 from Coffee import SingleOrigin
 
+
 def get_site_info(url):
     result = requests.get(url)
     return BeautifulSoup(result.text, 'html.parser')
 
 
 def get_availability(inStock):
-    if (inStock):
-        return 'In Stock'
-    else:
-        return 'Sold Out'
+    return 'In Stock' if inStock else 'Sold Out'
 
 
 def get_single_origin_coffee():
@@ -31,7 +29,7 @@ def get_single_origin_coffee():
 
     coffeeList = []
 
-    print("Single Origin Coffee", style='bold')
+    print("Single Origin Coffee")
 
     for product in products:
         inStock = product.find(class_='sold-out') == None
@@ -97,6 +95,7 @@ def get_signature_blend_coffee():
         coffeeList.append(SignatureBlend(productName, roastProfile, inStock))
 
     i = 0
+
     for coffee in coffeeList:
         print(f' Availability: {get_availability(coffee.inStock)} \
             \n Name: {coffee.name} \
