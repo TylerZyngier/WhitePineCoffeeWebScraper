@@ -6,7 +6,6 @@ import os
 from Coffee import SignatureBlend
 from Coffee import SingleOrigin
 
-
 def get_site_info(url):
     result = requests.get(url)
     return BeautifulSoup(result.text, 'html.parser')
@@ -59,7 +58,6 @@ def get_single_origin_coffee():
             \n {coffee.origin} \
             \n {coffee.roast} \
             \n {coffee.processing} \
-            \n {coffee.origin} \
             \n {coffee.notes}\n')
 
 
@@ -100,7 +98,7 @@ def clear_console():
     os.system('cls')
 
 
-while(True):
+while True:
     print("Enter 1 to view WPCs Signature Blends \
     \nEnter 2 to view Single Origin Coffee \
     \nEnter 3 to close program")
@@ -115,3 +113,7 @@ while(True):
         get_single_origin_coffee()
     elif userInput == '3':
         sys.exit()
+
+
+coffee1 = SingleOrigin('Java')
+coffee2 = SingleOrigin()
